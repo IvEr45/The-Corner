@@ -17,500 +17,488 @@
       --accent: #c8a882;
       --pinterest-red: #e60023;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background-color: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; }
     h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
     html { scroll-behavior: smooth; }
 
     nav {
-      background: var(--cream);
-      border-bottom: 1px solid rgba(181,144,106,0.2);
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(8px);
+      background: var(--cream); border-bottom: 1px solid rgba(181,144,106,0.2);
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
     }
-    .nav-link {
-      font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
-      font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--mid); transition: color 0.2s;
-    }
+    .nav-link { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); transition: color 0.2s; text-decoration: none; }
     .nav-link:hover { color: var(--warm-brown); }
-    .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; letter-spacing: 0.08em; color: var(--dark); }
-    .brand span { font-style: italic; color: var(--warm-brown); }
+    .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; letter-spacing: 0.08em; color: var(--dark); text-decoration: none; }
 
-    /* Pinterest connect button in nav */
-    .nav-pinterest-btn {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: var(--pinterest-red); color: white;
-      font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.5rem 1.1rem; text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
+    .nav-pinterest-btn { display: flex; align-items: center; gap: 0.5rem; background: var(--pinterest-red); color: white; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.1rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; border: none; cursor: pointer; }
     .nav-pinterest-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .nav-pinterest-btn svg { width: 14px; height: 14px; fill: white; }
 
-    .hero {
-      min-height: 80vh; display: grid;
-      grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden;
-    }
+    /* Hero */
+    .hero { min-height: 80vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
     .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 8vw; }
-    .hero-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-brown); margin-bottom: 1.5rem; }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 1.5rem; }
+    .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-brown); margin-bottom: 1.5rem; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.5rem; }
     .hero-title em { font-style: italic; color: var(--warm-brown); }
-    .hero-subtitle { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: var(--mid); max-width: 400px; margin-bottom: 2.5rem; }
-    .hero-cta { display: inline-block; padding: 0.9rem 2.5rem; background: var(--dark); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.25s, transform 0.25s; align-self: flex-start; }
+    .hero-subtitle { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: var(--mid); max-width: 400px; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-block; padding: 0.9rem 2.5rem; background: var(--dark); color: var(--cream); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: background 0.25s, transform 0.25s; align-self: flex-start; }
     .hero-cta:hover { background: var(--warm-brown); transform: translateY(-1px); }
     .hero-image { position: relative; overflow: hidden; }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); transition: transform 8s ease; }
     .hero-image:hover img { transform: scale(1.03); }
     .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--cream) 0%, transparent 15%); }
 
-    .section-header { text-align: center; margin-bottom: 3.5rem; }
-    .section-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-brown); display: block; margin-bottom: 0.75rem; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; color: var(--dark); }
+    /* Section */
+    .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-brown); display: block; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; }
 
+    /* Product Cards */
     .product-card { background: white; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
     .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(26,23,20,0.1); }
-    .product-img-wrap { overflow: hidden; aspect-ratio: 4/5; position: relative; }
+    .product-img-wrap { overflow: hidden; aspect-ratio: 4/5; position: relative; background: #f0ebe4; }
     .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: saturate(0.8); }
     .product-card:hover .product-img-wrap img { transform: scale(1.05); }
-    .product-tag { position: absolute; top: 1rem; left: 1rem; background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.7rem; color: var(--mid); }
+    .product-tag { position: absolute; top: 1rem; left: 1rem; background: var(--cream); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.7rem; color: var(--mid); }
     .product-info { padding: 1.25rem 1.5rem 1.5rem; }
-    .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--dark); margin-bottom: 0.4rem; }
-    .product-desc { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
-    .product-link { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-brown); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color 0.2s; }
+    .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.4rem; line-height: 1.3; }
+    .product-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; margin-bottom: 1rem; }
+    .product-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-brown); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color 0.2s; }
     .product-link:hover { color: var(--dark); }
 
-    /* ── HOW IT WORKS ── */
+    /* Skeleton loader */
+    .skeleton { background: linear-gradient(90deg, #ede8e2 25%, #e4ddd5 50%, #ede8e2 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    .skeleton-card { background: white; overflow: hidden; }
+    .skeleton-img { aspect-ratio: 4/5; }
+    .skeleton-line { height: 14px; border-radius: 2px; margin-bottom: 8px; }
+    .skeleton-line.short { width: 60%; }
+
+    /* Product detail overlay */
+    .overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .overlay.open { opacity: 1; pointer-events: all; }
+    .overlay-backdrop { position: absolute; inset: 0; background: rgba(26,23,20,0.7); }
+    .overlay-panel { position: relative; background: var(--cream); max-width: 860px; width: 100%; max-height: 90vh; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; transform: translateY(20px); transition: transform 0.3s; }
+    .overlay.open .overlay-panel { transform: translateY(0); }
+    .overlay-img { aspect-ratio: 1; overflow: hidden; }
+    .overlay-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); }
+    .overlay-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .overlay-query { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-brown); margin-bottom: 0.75rem; }
+    .overlay-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; line-height: 1.25; margin-bottom: 1rem; }
+    .overlay-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.8; margin-bottom: 1.5rem; }
+    .overlay-date { font-size: 0.7rem; color: #a09080; margin-bottom: 1.5rem; }
+    .shop-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--dark); color: var(--cream); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; transition: background 0.25s, transform 0.2s; border: none; cursor: pointer; width: fit-content; }
+    .shop-btn:hover { background: var(--warm-brown); transform: translateY(-1px); }
+    .shop-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .amazon-note { font-size: 0.7rem; color: #a09080; margin-top: 0.75rem; }
+    .close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; color: var(--mid); font-size: 1.4rem; line-height: 1; z-index: 10; transition: color 0.2s; }
+    .close-btn:hover { color: var(--dark); }
+
+    /* How it works */
     .how-section { background: #f2ede7; padding: 6rem 1.5rem; }
     .step-number { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(181,144,106,0.25); line-height: 1; margin-bottom: 0.5rem; }
     .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--dark); margin-bottom: 0.6rem; }
-    .step-desc { font-family: 'DM Sans', sans-serif; font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
-    .step-connector { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto; }
+    .step-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
 
-    /* ── CONNECT SECTION ── */
+    /* Connect */
     .connect-section { background: var(--dark); padding: 6rem 1.5rem; text-align: center; }
-    .connect-section h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 3rem); color: var(--cream); margin-bottom: 1rem; }
-    .connect-section p { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: #b5a595; line-height: 1.8; max-width: 480px; margin: 0 auto 2.5rem; }
-
-    .connect-pinterest-btn {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      background: var(--pinterest-red); color: white;
-      font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 1rem 2.5rem; text-decoration: none; cursor: pointer; border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .connect-pinterest-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--pinterest-red); color: white; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2.5rem; text-decoration: none; cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s; }
     .connect-pinterest-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(230,0,35,0.35); }
-    .connect-pinterest-btn svg { width: 18px; height: 18px; fill: white; flex-shrink: 0; }
-
-    /* Connected state */
-    .connected-panel {
-      display: none;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(200,168,130,0.2);
-      padding: 2rem;
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: left;
-    }
+    .connected-panel { display: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,168,130,0.2); padding: 2rem; max-width: 640px; margin: 0 auto; text-align: left; }
     .connected-panel.visible { display: block; }
-    .connected-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-    .connected-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--pinterest-red); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: white; flex-shrink: 0; }
-    .connected-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--cream); }
-    .connected-status { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7ec882; }
-
-    .boards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+    .boards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; margin-top: 1.25rem; }
     .board-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(200,168,130,0.15); padding: 0.6rem 0.9rem; }
-    .board-chip-name { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .board-chip-count { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; color: var(--mid); margin-top: 0.15rem; }
-
+    .board-chip-name { font-size: 0.75rem; color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .board-chip-count { font-size: 0.65rem; color: var(--mid); margin-top: 0.15rem; }
     .scope-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-    .scope-tag { background: rgba(200,168,130,0.1); border: 1px solid rgba(200,168,130,0.2); font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding: 0.3rem 0.7rem; }
+    .scope-tag { background: rgba(200,168,130,0.1); border: 1px solid rgba(200,168,130,0.2); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding: 0.3rem 0.7rem; }
 
-    .ornament { display: flex; align-items: center; gap: 1rem; justify-content: center; color: var(--accent); font-size: 0.8rem; }
-    .ornament::before, .ornament::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--accent); opacity: 0.5; }
-
+    /* Privacy */
     .privacy-section { background: var(--dark); color: #d4c5b5; }
     .privacy-section h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--cream); }
     .privacy-section h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; color: var(--accent); }
-    .privacy-section p, .privacy-section li { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; line-height: 1.9; color: #b5a595; }
+    .privacy-section p { font-size: 0.85rem; line-height: 1.9; color: #b5a595; }
     .privacy-section a { color: var(--accent); }
     .affiliate-box { border: 1px solid rgba(200,168,130,0.3); background: rgba(200,168,130,0.06); padding: 1.5rem 2rem; margin: 1.5rem 0; }
 
-    footer { background: #120f0c; color: #6b5e52; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; letter-spacing: 0.05em; }
-    footer .brand { color: var(--accent); font-size: 1.3rem; }
+    .ornament { display: flex; align-items: center; gap: 1rem; justify-content: center; color: var(--accent); }
+    .ornament::before, .ornament::after { content: ''; flex: 1; max-width: 120px; height: 1px; background: var(--accent); opacity: 0.5; }
 
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-image { height: 50vw; min-height: 260px; }
-      .hero-image::after { background: linear-gradient(to bottom, transparent 60%, var(--cream)); }
-      .hero-text { padding: 3rem 1.5rem; }
-      .boards-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    footer { background: #120f0c; color: #6b5e52; font-size: 0.75rem; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .fade-up { animation: fadeUp 0.8s ease forwards; opacity: 0; }
-    .delay-1 { animation-delay: 0.15s; }
-    .delay-2 { animation-delay: 0.3s; }
-    .delay-3 { animation-delay: 0.45s; }
-    .delay-4 { animation-delay: 0.6s; }
+    .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
+    @keyframes pulse { 0%,100%{opacity:1;}50%{opacity:0.4;} }
+    .loading-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulse 1.2s ease-in-out infinite; }
+    .loading-dot:nth-child(2){animation-delay:0.2s;} .loading-dot:nth-child(3){animation-delay:0.4s;}
 
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-    .loading-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
-    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
-    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;min-height:auto;}
+      .hero-image{height:50vw;min-height:260px;}
+      .hero-image::after{background:linear-gradient(to bottom,transparent 60%,var(--cream));}
+      .hero-text{padding:3rem 1.5rem;}
+      .overlay-panel{grid-template-columns:1fr;}
+      .overlay-img{aspect-ratio:16/9;}
+      .boards-grid{grid-template-columns:repeat(2,1fr);}
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-      <a href="#home" class="brand">The Corner</a>
-      <div class="flex items-center gap-6">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#privacy" class="nav-link">Privacy</a>
-        <a href="#connect" class="nav-pinterest-btn" id="nav-connect-btn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-          Connect Pinterest
-        </a>
+<!-- NAV -->
+<nav>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+    <a href="#home" class="brand">The Corner</a>
+    <div class="flex items-center gap-6">
+      <a href="#products" class="nav-link">Shop</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#privacy" class="nav-link">Privacy</a>
+      <button class="nav-pinterest-btn" id="nav-connect-btn" onclick="startPinterestAuth()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Connect Pinterest
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">Home &amp; Lifestyle Curation</p>
+    <h1 class="hero-title fade-up delay-1">Curated Finds<br/>for the <em>Modern</em><br/>Home</h1>
+    <p class="hero-subtitle fade-up delay-2">We surface trending home products daily so you don't have to. Every item is handpicked for beauty, quality, and everyday livability.</p>
+    <a href="#products" class="hero-cta fade-up delay-3">Explore the Collection</a>
+  </div>
+  <div class="hero-image fade-up delay-2">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&auto=format&fit=crop" alt="Modern living room" loading="eager"/>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+  <div class="text-center mb-14">
+    <span class="section-eyebrow">Live from the Pipeline</span>
+    <h2 class="section-title">This Week's Finds</h2>
+    <p style="font-size:0.8rem;color:var(--mid);margin-top:0.75rem;font-family:'DM Sans',sans-serif;">Updated daily · Sourced from trending Pinterest searches</p>
+  </div>
+  <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Skeleton loaders -->
+    <div class="skeleton-card" id="sk1"><div class="skeleton skeleton-img"></div><div style="padding:1.25rem 1.5rem"><div class="skeleton skeleton-line" style="width:80%"></div><div class="skeleton skeleton-line" style="width:100%"></div><div class="skeleton skeleton-line short"></div></div></div>
+    <div class="skeleton-card" id="sk2"><div class="skeleton skeleton-img"></div><div style="padding:1.25rem 1.5rem"><div class="skeleton skeleton-line" style="width:70%"></div><div class="skeleton skeleton-line" style="width:100%"></div><div class="skeleton skeleton-line short"></div></div></div>
+    <div class="skeleton-card" id="sk3"><div class="skeleton skeleton-img"></div><div style="padding:1.25rem 1.5rem"><div class="skeleton skeleton-line" style="width:85%"></div><div class="skeleton skeleton-line" style="width:100%"></div><div class="skeleton skeleton-line short"></div></div></div>
+    <div class="skeleton-card" id="sk4"><div class="skeleton skeleton-img"></div><div style="padding:1.25rem 1.5rem"><div class="skeleton skeleton-line" style="width:75%"></div><div class="skeleton skeleton-line" style="width:100%"></div><div class="skeleton skeleton-line short"></div></div></div>
+  </div>
+  <div id="no-products" style="display:none;text-align:center;padding:3rem 0;color:var(--mid);font-size:0.9rem;">No products available yet. Check back tomorrow!</div>
+  <div class="ornament mt-20 mb-2">✦</div>
+  <p class="text-center text-xs tracking-widest uppercase mt-4" style="color:var(--mid);">New finds added every morning</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="how-section">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="section-eyebrow">The Process</span>
+      <h2 class="section-title">How The Corner Works</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-3xl mx-auto">
+      <div class="text-center px-4">
+        <div class="step-number">01</div>
+        <h3 class="step-title">Daily Trend Scraping</h3>
+        <p class="step-desc">Every morning our pipeline scrapes Pinterest Trends for the most popular home product searches and filters them with AI.</p>
+      </div>
+      <div class="text-center px-4">
+        <div class="step-number">02</div>
+        <h3 class="step-title">Products Curated Here</h3>
+        <p class="step-desc">Matching Amazon products are sourced and displayed on this website with images, descriptions, and affiliate links for each item.</p>
+      </div>
+      <div class="text-center px-4">
+        <div class="step-number">03</div>
+        <h3 class="step-title">Pinned to Pinterest</h3>
+        <p class="step-desc">Each approved product is pinned to Pinterest via the API using <strong>pins:write</strong> scope, driving traffic back to this page.</p>
       </div>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-text">
-      <p class="hero-eyebrow fade-up">Home &amp; Lifestyle Curation</p>
-      <h1 class="hero-title fade-up delay-1">
-        Curated Finds<br />for the <em>Modern</em><br />Home
-      </h1>
-      <p class="hero-subtitle fade-up delay-2">
-        We sift through thousands of products so you don't have to. Every item is handpicked for beauty, quality, and everyday livability — then pinned directly to Pinterest.
-      </p>
-      <a href="#products" class="hero-cta fade-up delay-3">Explore the Collection</a>
-    </div>
-    <div class="hero-image fade-up delay-2">
-      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&auto=format&fit=crop" alt="Beautifully arranged living room" loading="eager" />
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="how-section">
-    <div class="max-w-5xl mx-auto">
-      <div class="section-header">
-        <span class="section-eyebrow">The Process</span>
-        <h2 class="section-title">How The Corner Works</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-12 max-w-3xl mx-auto">
-
-        <div class="text-center px-4 py-6">
-          <div class="step-number">01</div>
-          <h3 class="step-title">Connect Your Pinterest</h3>
-          <p class="step-desc">Authenticate securely via Pinterest OAuth 2.0. We request only the permissions needed to post pins to your selected board.</p>
-          <div class="mt-4 inline-flex items-center gap-2" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-brown); font-family:'DM Sans',sans-serif;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--warm-brown)"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-            OAuth 2.0 Secured
-          </div>
-        </div>
-
-        <div class="text-center px-4 py-6">
-          <div class="step-number">02</div>
-          <h3 class="step-title">We Curate the Products</h3>
-          <p class="step-desc">Our system scans trending home products daily, filters for quality and relevance, and prepares pin-ready content with titles and descriptions.</p>
-          <div class="mt-4 inline-flex items-center gap-2" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-brown); font-family:'DM Sans',sans-serif;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--warm-brown)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Updated Daily
-          </div>
-        </div>
-
-        <div class="text-center px-4 py-6">
-          <div class="step-number">03</div>
-          <h3 class="step-title">Pins Posted Automatically</h3>
-          <p class="step-desc">Using the Pinterest API, curated pins are published to your board — complete with affiliate links, rich descriptions, and product images.</p>
-          <div class="mt-4 inline-flex items-center gap-2" style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-brown); font-family:'DM Sans',sans-serif;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--warm-brown)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Pins:Write Scope
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Scopes used -->
-      <div class="max-w-xl mx-auto mt-12 text-center">
-        <p style="font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); margin-bottom:0.75rem;">Permissions Requested</p>
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span style="background:white; border:1px solid rgba(181,144,106,0.3); font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.08em; color:var(--mid); padding:0.35rem 0.85rem;">boards:read</span>
-          <span style="background:white; border:1px solid rgba(181,144,106,0.3); font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.08em; color:var(--mid); padding:0.35rem 0.85rem;">pins:read</span>
-          <span style="background:white; border:1px solid rgba(181,144,106,0.3); font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.08em; color:var(--mid); padding:0.35rem 0.85rem;">pins:write</span>
-          <span style="background:white; border:1px solid rgba(181,144,106,0.3); font-family:'DM Sans',sans-serif; font-size:0.7rem; letter-spacing:0.08em; color:var(--mid); padding:0.35rem 0.85rem;">user_accounts:read</span>
-        </div>
+    <div class="max-w-xl mx-auto mt-12 text-center">
+      <p style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:0.75rem;">Pinterest API Permissions Used</p>
+      <div class="flex flex-wrap gap-2 justify-center">
+        <span style="background:white;border:1px solid rgba(181,144,106,0.3);font-size:0.7rem;letter-spacing:0.08em;color:var(--mid);padding:0.35rem 0.85rem;">boards:read</span>
+        <span style="background:white;border:1px solid rgba(181,144,106,0.3);font-size:0.7rem;letter-spacing:0.08em;color:var(--mid);padding:0.35rem 0.85rem;">pins:read</span>
+        <span style="background:white;border:1px solid rgba(181,144,106,0.3);font-size:0.7rem;letter-spacing:0.08em;color:var(--mid);padding:0.35rem 0.85rem;">pins:write</span>
+        <span style="background:white;border:1px solid rgba(181,144,106,0.3);font-size:0.7rem;letter-spacing:0.08em;color:var(--mid);padding:0.35rem 0.85rem;">user_accounts:read</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRODUCTS -->
-  <section id="products" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-    <div class="section-header">
-      <span class="section-eyebrow">Editor's Picks</span>
-      <h2 class="section-title">This Season's Highlights</h2>
+<!-- CONNECT -->
+<section id="connect" class="connect-section">
+  <div class="max-w-2xl mx-auto">
+    <div id="not-connected">
+      <span class="section-eyebrow" style="color:var(--accent);display:block;margin-bottom:1rem;">Pinterest Integration</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3vw,3rem);color:var(--cream);margin-bottom:1rem;">Connect Your Pinterest</h2>
+      <p style="font-size:0.9rem;color:#b5a595;line-height:1.8;max-width:480px;margin:0 auto 2.5rem;">Authenticate with Pinterest to authorise The Corner to post curated pins to your board via the Pinterest API.</p>
+      <button class="connect-pinterest-btn" onclick="startPinterestAuth()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Sign in with Pinterest
+      </button>
+      <p style="font-size:0.72rem;color:#4a3f37;margin-top:1.25rem;">You will be redirected to Pinterest to authorise access. We never store your password.</p>
     </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <span class="product-tag">New In</span>
-          <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&q=80&auto=format&fit=crop" alt="Ceramic Pour-Over Coffee Set" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Ceramic Pour-Over Set</h3>
-          <p class="product-desc">Matte stoneware that transforms your morning ritual into something worth waking up for.</p>
-          <a href="#" class="product-link">Shop on Amazon →</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <span class="product-tag">Best Seller</span>
-          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&auto=format&fit=crop" alt="Minimal Linen Sofa" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Linen Accent Chair</h3>
-          <p class="product-desc">Sculptural silhouette meets cloud-like comfort — the chair your living room didn't know it needed.</p>
-          <a href="#" class="product-link">Shop on Amazon →</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <span class="product-tag">Staff Pick</span>
-          <img src="https://images.unsplash.com/photo-1463320726281-696a485928c7?w=600&q=80&auto=format&fit=crop" alt="Beeswax Candle Collection" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Beeswax Pillar Candles</h3>
-          <p class="product-desc">Hand-poured, slow-burning candles that cast the warmest golden glow in any room.</p>
-          <a href="#" class="product-link">Shop on Amazon →</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img-wrap">
-          <span class="product-tag">Trending</span>
-          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80&auto=format&fit=crop" alt="Dried Botanicals Arrangement" loading="lazy" />
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Dried Botanical Stems</h3>
-          <p class="product-desc">Timeless texture and earthy tones — effortless styling that lasts all year long.</p>
-          <a href="#" class="product-link">Shop on Amazon →</a>
-        </div>
-      </div>
+    <div id="loading-state" style="display:none;text-align:center;padding:2rem 0;">
+      <div style="display:flex;justify-content:center;gap:6px;margin-bottom:1rem;"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>
+      <p style="font-size:0.8rem;color:#b5a595;letter-spacing:0.1em;text-transform:uppercase;">Connecting to Pinterest…</p>
     </div>
-
-    <div class="ornament mt-20 mb-2">✦</div>
-    <p class="text-center text-xs tracking-widest uppercase mt-4" style="color: var(--mid); font-family: 'DM Sans', sans-serif;">New finds added every week</p>
-  </section>
-
-  <!-- CONNECT WITH PINTEREST -->
-  <section id="connect" class="connect-section">
-    <div class="max-w-2xl mx-auto">
-
-      <!-- Not connected state -->
-      <div id="not-connected">
-        <span class="section-eyebrow" style="color:var(--accent); display:block; margin-bottom:1rem;">Pinterest Integration</span>
-        <h2>Connect Your Pinterest Account</h2>
-        <p>Authenticate with Pinterest to see how The Corner requests access to post curated pins to your boards. This demonstrates our OAuth 2.0 integration.</p>
-        <button class="connect-pinterest-btn" id="connect-btn" onclick="startPinterestAuth()">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-          Sign in with Pinterest
-        </button>
-        <p style="font-size:0.72rem; color:#4a3f37; margin-top:1.25rem; font-family:'DM Sans',sans-serif;">
-          You will be redirected to Pinterest to authorise access. We never store your password.
-        </p>
+    <div class="connected-panel" id="connected-panel">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--pinterest-red);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:white;flex-shrink:0;">T</div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);">The Corner</div>
+          <div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#7ec882;">✓ Connected via Pinterest OAuth</div>
+        </div>
+        <button onclick="disconnect()" style="margin-left:auto;background:none;border:1px solid rgba(200,168,130,0.2);color:#6b5e52;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 0.8rem;cursor:pointer;">Disconnect</button>
       </div>
-
-      <!-- Loading state -->
-      <div id="loading-state" style="display:none; text-align:center; padding:2rem 0;">
-        <div style="display:flex; justify-content:center; gap:6px; margin-bottom:1rem;">
-          <span class="loading-dot"></span>
-          <span class="loading-dot"></span>
-          <span class="loading-dot"></span>
-        </div>
-        <p style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:#b5a595; letter-spacing:0.1em; text-transform:uppercase;">Connecting to Pinterest…</p>
+      <p style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:0.75rem;">Your Pinterest Boards</p>
+      <div class="boards-grid" id="boards-grid"></div>
+      <div class="scope-list">
+        <span class="scope-tag">✓ boards:read</span>
+        <span class="scope-tag">✓ pins:read</span>
+        <span class="scope-tag">✓ pins:write</span>
+        <span class="scope-tag">✓ user_accounts:read</span>
       </div>
-
-      <!-- Connected state -->
-      <div class="connected-panel" id="connected-panel">
-        <div class="connected-header">
-          <div class="connected-avatar" id="user-avatar">E</div>
-          <div>
-            <div class="connected-name" id="user-name">The Corner</div>
-            <div class="connected-status">✓ Connected via Pinterest OAuth</div>
-          </div>
-          <button onclick="disconnect()" style="margin-left:auto; background:none; border:1px solid rgba(200,168,130,0.2); color:#6b5e52; font-family:'DM Sans',sans-serif; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.4rem 0.8rem; cursor:pointer;">Disconnect</button>
-        </div>
-
-        <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); margin-bottom:0.75rem;">Your Pinterest Boards</p>
-        <div class="boards-grid" id="boards-grid">
-          <!-- filled by JS -->
-        </div>
-
-        <div class="scope-list">
-          <span class="scope-tag">✓ boards:read</span>
-          <span class="scope-tag">✓ pins:read</span>
-          <span class="scope-tag">✓ pins:write</span>
-          <span class="scope-tag">✓ user_accounts:read</span>
-        </div>
-
-        <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#4a3f37; margin-top:1.25rem; line-height:1.7;">
-          The Corner will post new curated pins to your selected board daily at 12:00 PM. You can disconnect at any time from your <a href="https://www.pinterest.com/settings/security" target="_blank" style="color:var(--accent);">Pinterest security settings</a>.
-        </p>
-      </div>
-
+      <p style="font-size:0.75rem;color:#4a3f37;margin-top:1.25rem;line-height:1.7;">The Corner will post new curated pins linking back to this website daily. You can disconnect at any time from your <a href="https://www.pinterest.com/settings/security" target="_blank">Pinterest security settings</a>.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRIVACY POLICY -->
-  <section id="privacy" class="privacy-section py-24 px-6 md:px-12">
-    <div class="max-w-3xl mx-auto">
-      <div class="section-header mb-12">
-        <span class="section-eyebrow" style="color: var(--accent);">Legal</span>
-        <h2 class="section-title" style="color: var(--cream);">Privacy Policy</h2>
-        <p style="font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: #6b5e52; margin-top: 0.75rem;">Last updated: January 2025</p>
-      </div>
-
-      <div class="affiliate-box mb-10">
-        <h3 class="text-lg mb-3">Affiliate Disclosure</h3>
-        <p><strong style="color: var(--cream);">The Corner participates in the Amazon Services LLC Associates Program.</strong> As an Amazon Associate, I earn from qualifying purchases. This means that when you click on certain links on this site and make a purchase, we may receive a small commission at no additional cost to you.</p>
-        <p class="mt-3">We only recommend products we genuinely believe in. All opinions expressed here are our own.</p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl mb-3">Pinterest API Usage</h3>
-        <p>The Corner uses the Pinterest API to post pins to authorised Pinterest boards. We request the following OAuth scopes: <strong style="color:var(--accent);">boards:read, pins:read, pins:write, user_accounts:read</strong>. We do not store your Pinterest credentials. Access tokens are stored securely and used solely to post curated product pins on your behalf. You may revoke access at any time via your Pinterest security settings.</p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl mb-3">Information We Collect</h3>
-        <p>This website does not collect personal information unless you voluntarily provide it. We may collect non-personally identifiable information such as browser type, referring pages, and pages viewed via standard server logs or analytics tools.</p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl mb-3">Cookies &amp; Tracking</h3>
-        <p>We may use cookies to enhance your browsing experience. Third-party services like Google Analytics may set their own cookies to help us understand site traffic. You can disable cookies in your browser settings at any time.</p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl mb-3">Third-Party Links</h3>
-        <p>This site contains links to external websites, including Amazon and Pinterest. We are not responsible for the privacy practices or content of those sites.</p>
-      </div>
-
-      <div class="mb-8">
-        <h3 class="text-xl mb-3">Changes to This Policy</h3>
-        <p>We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page with an updated date.</p>
-      </div>
-
-      <div>
-        <h3 class="text-xl mb-3">Contact</h3>
-        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@thecorner.com">hello@thecorner.com</a>.</p>
-      </div>
+<!-- PRIVACY -->
+<section id="privacy" class="privacy-section py-24 px-6 md:px-12">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="section-eyebrow" style="color:var(--accent);">Legal</span>
+      <h2 class="section-title" style="color:var(--cream);">Privacy Policy</h2>
+      <p style="font-size:0.75rem;color:#6b5e52;margin-top:0.75rem;">Last updated: January 2025</p>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="#home" class="brand">The Corner</a>
-      <p style="font-size: 0.75rem; letter-spacing: 0.05em; color: #3d342c;">
-        © 2025 The Corner. All rights reserved. &nbsp;·&nbsp;
-        <a href="#privacy" style="color: #6b5e52; text-decoration: none;" onmouseover="this.style.color='#c8a882'" onmouseout="this.style.color='#6b5e52'">Privacy Policy</a>
-      </p>
+    <div class="affiliate-box mb-10">
+      <h3 class="text-lg mb-3">Affiliate Disclosure</h3>
+      <p><strong style="color:var(--cream);">The Corner participates in the Amazon Services LLC Associates Program.</strong> As an Amazon Associate, we earn from qualifying purchases. When you click a product link and make a purchase, we may receive a small commission at no additional cost to you.</p>
     </div>
-  </footer>
+    <div class="mb-8">
+      <h3 class="text-xl mb-3">Pinterest API Usage</h3>
+      <p>The Corner uses the Pinterest API to post pins that link back to this website. We request the following OAuth scopes: <strong style="color:var(--accent);">boards:read, pins:read, pins:write, user_accounts:read</strong>. We do not store your Pinterest credentials. You may revoke access at any time via your Pinterest security settings.</p>
+    </div>
+    <div class="mb-8">
+      <h3 class="text-xl mb-3">Information We Collect</h3>
+      <p>This website does not collect personal information. We may collect non-personally identifiable information such as browser type and pages viewed via standard analytics tools.</p>
+    </div>
+    <div class="mb-8">
+      <h3 class="text-xl mb-3">Cookies &amp; Tracking</h3>
+      <p>We may use cookies to enhance your browsing experience. Amazon and Pinterest may set their own cookies to track purchases and engagement for commission and analytics purposes.</p>
+    </div>
+    <div class="mb-8">
+      <h3 class="text-xl mb-3">Third-Party Links</h3>
+      <p>This site contains links to Amazon and Pinterest. We are not responsible for the privacy practices of those sites.</p>
+    </div>
+    <div>
+      <h3 class="text-xl mb-3">Contact</h3>
+      <p>Questions? Email us at <a href="mailto:hello@thecorner.com">hello@thecorner.com</a>.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // ── CONFIG ──────────────────────────────────────────────
-    const PINTEREST_APP_ID  = '1549508'; // replace with your App ID
-    const REDIRECT_URI      = encodeURIComponent('https://iver45.github.io/The-Corner/index.html');
-    const SCOPES            = 'boards:read,pins:read,pins:write,user_accounts:read';
+<!-- FOOTER -->
+<footer class="py-10 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--accent);">The Corner</span>
+    <p>© 2025 The Corner. All rights reserved. &nbsp;·&nbsp; <a href="#privacy" style="color:#6b5e52;text-decoration:none;">Privacy Policy</a></p>
+  </div>
+</footer>
 
-    // ── CHECK FOR OAUTH CALLBACK ─────────────────────────────
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const code   = params.get('code');
-      const state  = params.get('state');
+<!-- PRODUCT DETAIL OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="overlay-backdrop"></div>
+  <div class="overlay-panel">
+    <button class="close-btn" onclick="closeOverlayBtn()">✕</button>
+    <div class="overlay-img"><img id="overlay-img" src="" alt=""/></div>
+    <div class="overlay-body">
+      <p class="overlay-query" id="overlay-query"></p>
+      <h3 class="overlay-title" id="overlay-title"></h3>
+      <p class="overlay-desc" id="overlay-desc"></p>
+      <p class="overlay-date" id="overlay-date"></p>
+      <a id="shop-btn" class="shop-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-14.5-16h-2.5v2h2.5l3.5 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2h-11.58c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.5-6.35c.16-.28.25-.61.25-.96 0-1.1-.9-2-2-2h-14.5z"/></svg>
+        Shop on Amazon
+      </a>
+      <p class="amazon-note" id="affiliate-note"></p>
+    </div>
+  </div>
+</div>
 
-      if (code && state === sessionStorage.getItem('pinterest_state')) {
-        // Clean URL
-        window.history.replaceState({}, '', window.location.pathname);
-        showConnectedState();
-      } else if (localStorage.getItem('pinterest_connected') === 'true') {
-        showConnectedState();
+<script>
+  // ── CONFIG ────────────────────────────────────────────────────
+  const PINTEREST_APP_ID = '1549508';
+  const REDIRECT_URI     = encodeURIComponent('https://iver45.github.io/The-Corner/index.html');
+  const SCOPES           = 'boards:read,pins:read,pins:write,user_accounts:read';
+
+  // Raw CSV URL from your pipeline repo (public CSV file)
+  const CSV_URL = 'https://raw.githubusercontent.com/IvEr45/The-Corner/main/data/products.csv';
+
+  // ── CSV FETCHING ──────────────────────────────────────────────
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return [];
+    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+    return lines.slice(1).map(line => {
+      // Handle quoted fields with commas inside
+      const values = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === '"') { inQuotes = !inQuotes; }
+        else if (line[i] === ',' && !inQuotes) { values.push(current.trim()); current = ''; }
+        else { current += line[i]; }
       }
-    });
+      values.push(current.trim());
+      const obj = {};
+      headers.forEach((h, i) => { obj[h] = (values[i] || '').replace(/^"|"$/g, ''); });
+      return obj;
+    }).filter(r => r.title && r.image_url && r.affiliate_link);
+  }
 
-    // ── START OAUTH ──────────────────────────────────────────
-    function startPinterestAuth() {
-      const state = Math.random().toString(36).substring(2);
-      sessionStorage.setItem('pinterest_state', state);
-
-      document.getElementById('not-connected').style.display = 'none';
-      document.getElementById('loading-state').style.display = 'block';
-
-      const authURL =
-        `https://www.pinterest.com/oauth/` +
-        `?client_id=${PINTEREST_APP_ID}` +
-        `&redirect_uri=${REDIRECT_URI}` +
-        `&response_type=code` +
-        `&scope=${SCOPES}` +
-        `&state=${state}`;
-
-      setTimeout(() => { window.location.href = authURL; }, 800);
+  async function loadProducts() {
+    try {
+      const resp = await fetch(CSV_URL + '?t=' + Date.now());
+      if (!resp.ok) throw new Error('CSV not found');
+      const text = await resp.text();
+      const products = parseCSV(text);
+      renderProducts(products);
+    } catch(e) {
+      // CSV may be private repo - show message
+      document.getElementById('products-grid').innerHTML = '';
+      document.getElementById('no-products').style.display = 'block';
     }
+  }
 
-    // ── SHOW CONNECTED STATE ─────────────────────────────────
-    function showConnectedState() {
-      localStorage.setItem('pinterest_connected', 'true');
-      document.getElementById('not-connected').style.display  = 'none';
-      document.getElementById('loading-state').style.display  = 'none';
-      document.getElementById('connected-panel').classList.add('visible');
+  const TAGS = ['New In', 'Trending', 'Staff Pick', 'Best Seller', 'Editor\'s Pick'];
 
-      // Update nav button
-      const navBtn = document.getElementById('nav-connect-btn');
-      navBtn.style.background = '#2d7a32';
-      navBtn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="white"><polyline points="20 6 9 17 4 12"/></svg> Connected`;
-
-      // Demo boards (in a real app these come from the API)
-      const boards = [
-        { name: 'Home Decor Ideas', count: '142 pins' },
-        { name: 'Kitchen Finds',    count: '89 pins'  },
-        { name: 'Outdoor Living',   count: '56 pins'  },
-        { name: 'Trending Now',     count: '34 pins'  },
-        { name: 'Gift Ideas',       count: '21 pins'  },
-        { name: 'The Corner Picks',       count: '0 pins'   },
-      ];
-
-      const grid = document.getElementById('boards-grid');
-      grid.innerHTML = boards.map(b => `
-        <div class="board-chip">
-          <div class="board-chip-name">${b.name}</div>
-          <div class="board-chip-count">${b.count}</div>
+  function renderProducts(products) {
+    const grid = document.getElementById('products-grid');
+    grid.innerHTML = '';
+    if (!products.length) {
+      document.getElementById('no-products').style.display = 'block';
+      return;
+    }
+    products.forEach((p, i) => {
+      const tag = TAGS[i % TAGS.length];
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div class="product-img-wrap">
+          <span class="product-tag">${tag}</span>
+          <img src="${p.image_url}" alt="${p.title}" loading="lazy" onerror="this.parentElement.style.background='#ede8e2';this.style.display='none'"/>
         </div>
-      `).join('');
+        <div class="product-info">
+          <h3 class="product-name">${p.title.length > 60 ? p.title.slice(0,60)+'…' : p.title}</h3>
+          <p class="product-desc">${p.description ? (p.description.length > 100 ? p.description.slice(0,100)+'…' : p.description) : ''}</p>
+          <span class="product-link">View Product →</span>
+        </div>`;
+      card.addEventListener('click', () => openOverlay(p));
+      grid.appendChild(card);
+    });
+  }
 
-      // Scroll to connect section
-      document.getElementById('connect').scrollIntoView({ behavior: 'smooth' });
+  // ── PRODUCT OVERLAY ───────────────────────────────────────────
+  function openOverlay(p) {
+    document.getElementById('overlay-img').src   = p.image_url;
+    document.getElementById('overlay-img').alt   = p.title;
+    document.getElementById('overlay-query').textContent = p.search_query ? `Found via: ${p.search_query}` : '';
+    document.getElementById('overlay-title').textContent = p.title;
+    document.getElementById('overlay-desc').textContent  = p.description || '';
+    document.getElementById('overlay-date').textContent  = p.date_scraped ? `Added ${p.date_scraped}` : '';
+    const btn = document.getElementById('shop-btn');
+    btn.href = p.affiliate_link || p.product_url || '#';
+    document.getElementById('affiliate-note').textContent = p.affiliate_link
+      ? 'Affiliate link — we may earn a small commission at no cost to you.'
+      : '';
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay(e) {
+    if (e.target === document.getElementById('overlay') || e.target.classList.contains('overlay-backdrop')) closeOverlayBtn();
+  }
+  function closeOverlayBtn() {
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlayBtn(); });
+
+  // ── PINTEREST OAUTH ───────────────────────────────────────────
+  function startPinterestAuth() {
+    const state = Math.random().toString(36).substring(2);
+    sessionStorage.setItem('pinterest_state', state);
+    document.getElementById('not-connected').style.display = 'none';
+    document.getElementById('loading-state').style.display = 'block';
+    const url = `https://www.pinterest.com/oauth/?client_id=${PINTEREST_APP_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=${SCOPES}&state=${state}`;
+    setTimeout(() => { window.location.href = url; }, 800);
+  }
+
+  function showConnectedState() {
+    localStorage.setItem('pinterest_connected', 'true');
+    document.getElementById('not-connected').style.display = 'none';
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('connected-panel').classList.add('visible');
+    const btn = document.getElementById('nav-connect-btn');
+    btn.style.background = '#2d7a32';
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polyline points="20 6 9 17 4 12"/></svg> Connected`;
+    const boards = [
+      {name:'Home Decor Ideas',count:'142 pins'},{name:'Kitchen Finds',count:'89 pins'},
+      {name:'Outdoor Living',count:'56 pins'},{name:'Trending Now',count:'34 pins'},
+      {name:'Gift Ideas',count:'21 pins'},{name:'The Corner Picks',count:'0 pins'},
+    ];
+    document.getElementById('boards-grid').innerHTML = boards.map(b =>
+      `<div class="board-chip"><div class="board-chip-name">${b.name}</div><div class="board-chip-count">${b.count}</div></div>`
+    ).join('');
+    document.getElementById('connect').scrollIntoView({behavior:'smooth'});
+  }
+
+  function disconnect() {
+    localStorage.removeItem('pinterest_connected');
+    document.getElementById('connected-panel').classList.remove('visible');
+    document.getElementById('not-connected').style.display = 'block';
+    const btn = document.getElementById('nav-connect-btn');
+    btn.style.background = 'var(--pinterest-red)';
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Connect Pinterest`;
+  }
+
+  // ── INIT ──────────────────────────────────────────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    // Handle OAuth callback
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    if (code && state === sessionStorage.getItem('pinterest_state')) {
+      window.history.replaceState({}, '', window.location.pathname);
+      showConnectedState();
+    } else if (localStorage.getItem('pinterest_connected') === 'true') {
+      showConnectedState();
     }
 
-    // ── DISCONNECT ───────────────────────────────────────────
-    function disconnect() {
-      localStorage.removeItem('pinterest_connected');
-      document.getElementById('connected-panel').classList.remove('visible');
-      document.getElementById('not-connected').style.display = 'block';
-      const navBtn = document.getElementById('nav-connect-btn');
-      navBtn.style.background = 'var(--pinterest-red)';
-      navBtn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Connect Pinterest`;
+    // Check if arriving from a Pinterest pin (product param in URL)
+    const productParam = params.get('product');
+    if (productParam) {
+      // Will auto-open the matching product overlay after products load
+      window._openProductOnLoad = decodeURIComponent(productParam);
     }
-  </script>
+
+    loadProducts();
+  });
+
+  // Override renderProducts to auto-open if arriving from Pinterest
+  const _origRender = renderProducts;
+  function renderProducts(products) {
+    _origRender(products);
+    if (window._openProductOnLoad) {
+      const match = products.find(p => p.title.startsWith(window._openProductOnLoad.slice(0, 30)));
+      if (match) { openOverlay(match); window._openProductOnLoad = null; }
+    }
+  }
+</script>
 </body>
 </html>
