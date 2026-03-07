@@ -336,8 +336,8 @@
   const REDIRECT_URI     = encodeURIComponent('https://iver45.github.io/The-Corner/index.html');
   const SCOPES           = 'boards:read,pins:read,pins:write,user_accounts:read';
 
-  // Raw CSV URL from your pipeline repo (public CSV file)
-  const CSV_URL = 'https://raw.githubusercontent.com/IvEr45/The-Corner/main/data/products.csv';
+  // GitHub Contents API — avoids CORS issues with raw.githubusercontent.com
+  const CSV_API_URL = 'https://api.github.com/repos/IvEr45/The-Corner/contents/data/products.csv';
 
   // ── CSV FETCHING ──────────────────────────────────────────────
   function parseCSV(text) {
@@ -358,18 +358,21 @@
       const obj = {};
       headers.forEach((h, i) => { obj[h] = (values[i] || '').replace(/^"|"$/g, ''); });
       return obj;
-    }).filter(r => r.title && r.image_url && r.affiliate_link);
+    }).filter(r => r.title && r.image_url);
   }
 
   async function loadProducts() {
     try {
-      const resp = await fetch(CSV_URL + '?t=' + Date.now());
-      if (!resp.ok) throw new Error('CSV not found');
-      const text = await resp.text();
+      const resp = await fetch(CSV_API_URL, {
+        headers: { 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (!resp.ok) throw new Error('CSV not found: ' + resp.status);
+      const json = await resp.json();
+      const text = atob(json.content.replace(/\n/g, ''));
       const products = parseCSV(text);
       renderProducts(products);
     } catch(e) {
-      // CSV may be private repo - show message
+      console.error('Failed to load products:', e);
       document.getElementById('products-grid').innerHTML = '';
       document.getElementById('no-products').style.display = 'block';
     }
@@ -412,10 +415,23 @@
     document.getElementById('overlay-desc').textContent  = p.description || '';
     document.getElementById('overlay-date').textContent  = p.date_scraped ? `Added ${p.date_scraped}` : '';
     const btn = document.getElementById('shop-btn');
-    btn.href = p.affiliate_link || p.product_url || '#';
-    document.getElementById('affiliate-note').textContent = p.affiliate_link
-      ? 'Affiliate link — we may earn a small commission at no cost to you.'
-      : '';
+    if (p.affiliate_link) {
+      btn.href = p.affiliate_link;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'all';
+      btn.innerHTML = btn.innerHTML.replace('Coming Soon', 'Shop on Amazon');
+      document.getElementById('affiliate-note').textContent = 'Affiliate link — we may earn a small commission at no cost to you.';
+    } else if (p.product_url) {
+      btn.href = p.product_url;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'all';
+      document.getElementById('affiliate-note').textContent = '';
+    } else {
+      btn.href = '#';
+      btn.style.opacity = '0.4';
+      btn.style.pointerEvents = 'none';
+      document.getElementById('affiliate-note').textContent = '';
+    }
     document.getElementById('overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
