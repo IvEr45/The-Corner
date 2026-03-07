@@ -371,6 +371,11 @@
       const text = atob(json.content.replace(/\n/g, ''));
       const products = parseCSV(text);
       renderProducts(products);
+      // Auto-open product if arriving from a Pinterest pin
+      if (window._openProductOnLoad) {
+        const match = products.find(p => p.title.startsWith(window._openProductOnLoad.slice(0, 30)));
+        if (match) { openOverlay(match); window._openProductOnLoad = null; }
+      }
     } catch(e) {
       console.error('Failed to load products:', e);
       document.getElementById('products-grid').innerHTML = '';
@@ -506,15 +511,7 @@
     loadProducts();
   });
 
-  // Override renderProducts to auto-open if arriving from Pinterest
-  const _origRender = renderProducts;
-  function renderProducts(products) {
-    _origRender(products);
-    if (window._openProductOnLoad) {
-      const match = products.find(p => p.title.startsWith(window._openProductOnLoad.slice(0, 30)));
-      if (match) { openOverlay(match); window._openProductOnLoad = null; }
-    }
-  }
+
 </script>
 </body>
 </html>
